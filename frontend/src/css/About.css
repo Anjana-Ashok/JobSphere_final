@@ -1,0 +1,224 @@
+/* Reset Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html, #root {
+    font-family: "Arial", sans-serif;
+    height: 100%;
+    background-color: #f4f4f4;
+  }
+  
+  /* About Us Container */
+  .about-us-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 100px; /* To avoid content being hidden under navbar */
+    padding: 5px;
+  }
+  
+  /* Header Styling */
+  .about-us-header {
+    background-color:   #000000; /* Dark blue-gray */
+    color: white;
+    text-align: center;
+    padding: 30px 10px 30px 10px;
+    margin-top: 40px;
+    width: 102%;
+  }
+  
+  .about-us-header h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .about-us-header p {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  
+  /* Card Container for Our Story, Vision, and Values */
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 50px;
+  }
+  
+  /* Card Styles */
+  .card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+  }
+  
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card h3 {
+    font-size: 24px;
+    color: #936206;
+    margin-bottom: 20px;
+    font-weight: 600;
+  }
+  
+  .card p {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #000000;
+    margin-bottom: 20px;
+  }
+  
+  /* Mission Section */
+  .mission-section {
+    background-color: #d0ba9c9d;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .mission-section h3 {
+    font-size: 32px;
+    color: #6e4802;
+    margin-bottom: 20px;
+  }
+  
+  .mission-section p {
+    font-size: 18px;
+    color: #040505;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  /* Testimonials Section */
+  .testimonials-section {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .testimonials-section h3 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .testimonials-section .testimonial-card {
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    width: 280px;
+  }
+  
+  .testimonials-section .testimonial-card h4 {
+    font-size: 20px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .testimonials-section .testimonial-card p {
+    font-size: 16px;
+    color: #7f8c8d;
+    line-height: 1.6;
+    font-style: italic;
+  }
+  
+  /* Why Choose Us Section */
+  .why-choose-us {
+    background-color: #ecf0f1;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .why-choose-us h3 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .why-choose-us ul {
+    list-style: none;
+    padding: 0;
+    font-size: 18px;
+    color: #7f8c8d;
+  }
+  
+  .why-choose-us ul li {
+    margin: 10px 0;
+  }
+  
+  /* Careers Section */
+  .careers-section {
+    background-color: #fff;
+    padding: 50px 20px;
+    text-align: center;
+    margin-top: 60px;
+  }
+  
+  .careers-section h3 {
+    font-size: 32px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+  }
+  
+  .careers-section p {
+    font-size: 18px;
+    color: #7f8c8d;
+    margin-bottom: 20px;
+  }
+  
+  .careers-section a {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .careers-section a:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Call to Action Button */
+  .cta-button {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  .cta-button a {
+    background-color: #3498db;
+    color: white;
+    padding: 15px 30px;
+    font-size: 20px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+  
+  .cta-button a:hover {
+    background-color: #2980b9;
+  }

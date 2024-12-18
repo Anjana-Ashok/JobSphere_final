@@ -1,0 +1,61 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 210vh;
+  padding: 0;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+}
+
+.form-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90%;
+  padding: 20px 1px 10px 0px;
+}
+
+.profile-form {
+  max-width: 800px;
+  width: 100%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-heading {
+  text-align: center;
+  margin-bottom: 10px;
+  color: #000000;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.error-text {
+  color: red;
+  font-size: 0.875em;
+  margin-left: 1rem;
+}
+
+.form-row {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form-row > .MuiTextField-root {
+  flex: 1;
+}
+
+/* Uncomment if needed for button alignment */
+/* .button {
+  display: flex;
+  justify-content: center;
+  position: relative;
+} */
