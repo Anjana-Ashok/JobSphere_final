@@ -3,6 +3,7 @@ import "../css/WelcomePage.css";
 import { Link } from "react-router-dom";
 import Footer from "./Footer";
 import log from '../assets/orangelogo.png'
+import Navbar from "./Navbar";
 
 
 const WelcomePage = () => {
@@ -10,25 +11,7 @@ const WelcomePage = () => {
     <>
       <div className="WelcomePage-container">
         {/* Navbar */}
-        <header className="navbar">
-          <div className="logo">
-            <img src={log} alt="JobSphere Logo"
-              style={{ width: 90, height: 90 }} />
-            <span style={{ fontWeight: 600, fontSize: 25 }}>JobSphere</span>
-          </div>
-          <nav className="nav-links">
-
-            <Link to={'/'}><a href="#WelcomePage">Home</a></Link>
-
-
-            <Link to={'/aboutus'}><a href="#price-sheet">About us</a></Link>
-
-
-            <Link to={'/login'}> <a href="#about-us">Join</a></Link>
-          </nav>
-
-        </header>
-
+<Navbar/>
 
         {/* Hero Section */}
         <section className="hero">

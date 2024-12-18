@@ -1,16 +1,16 @@
+// login.jsx
+
 import React, { useEffect, useState } from 'react';
-// import Navbar from '../shared/Navbar';
 import {
     TextField,
+    Button,
     RadioGroup,
     FormControlLabel,
     Radio,
-    FormControl,
-    FormLabel,
-    Button,
     CircularProgress,
-    Box,
     Typography,
+    Box,
+    Paper,
 } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -63,98 +63,95 @@ const Login = () => {
     }, [user]);
 
     return (
-        <div>
-            {/* <Navbar /> */}
-            <Box display="flex" justifyContent="center" alignItems="center" my={10}>
-                <Box
-                    component="form"
-                    onSubmit={submitHandler}
-                    sx={{
-                        width: '400px',
-                        border: '1px solid #e0e0e0',
-                        borderRadius: '8px',
-                        padding: '2rem',
-                        boxShadow: 3,
-                    }}
-                >
-                    <Typography variant="h5" fontWeight="bold" marginBottom={2}>
-                        Login
-                    </Typography>
-                    {/* Email */}
-                    <TextField
-                        fullWidth
-                        label="Email"
-                        variant="outlined"
-                        margin="normal"
-                        type="email"
-                        name="email"
-                        value={input.email}
-                        onChange={changeEventHandler}
-                        placeholder="patel@gmail.com"
-                    />
-                    {/* Password */}
-                    <TextField
-                        fullWidth
-                        label="Password"
-                        variant="outlined"
-                        margin="normal"
-                        type="password"
-                        name="password"
-                        value={input.password}
-                        onChange={changeEventHandler}
-                        placeholder="Enter your password"
-                    />
-                    {/* Role Selection */}
-                    <FormControl component="fieldset" margin="normal">
-                        <FormLabel component="legend">Role</FormLabel>
+        <Box
+            className="flex items-center justify-center min-h-screen bg-gray-50"
+            sx={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                backgroundColor: '#f9f9f9',
+                height: '100vh',
+                padding: 2,
+            }}
+        >
+            <Paper
+                elevation={3}
+                sx={{
+                    width: '100%',
+                    maxWidth: 450,
+                    padding: 3, // Matches the padding with Signup
+                    borderRadius: 3,
+                    boxShadow: '0px 6px 15px rgba(0, 0, 0, 0.1)',
+                }}
+            >
+                <Typography variant="h5" textAlign="center" fontWeight="bold" mb={3} color="black">
+                    Welcome Back!
+                </Typography>
+                <form onSubmit={submitHandler}>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <TextField
+                            label="Email Address"
+                            variant="outlined"
+                            fullWidth
+                            name="email"
+                            value={input.email}
+                            onChange={changeEventHandler}
+                            type="email"
+                            required
+                        />
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <TextField
+                            label="Password"
+                            variant="outlined"
+                            fullWidth
+                            name="password"
+                            type="password"
+                            value={input.password}
+                            onChange={changeEventHandler}
+                            required
+                        />
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+                            Role
+                        </Typography>
                         <RadioGroup
-                            row
                             name="role"
                             value={input.role}
                             onChange={changeEventHandler}
+                            row
                         >
-                            <FormControlLabel
-                                value="student"
-                                control={<Radio />}
-                                label="Student"
-                            />
-                            <FormControlLabel
-                                value="recruiter"
-                                control={<Radio />}
-                                label="Recruiter"
-                            />
+                            <FormControlLabel value="student" control={<Radio />} label="Student" />
+                            <FormControlLabel value="recruiter" control={<Radio />} label="Recruiter" />
                         </RadioGroup>
-                    </FormControl>
-                    {/* Submit Button */}
-                    {loading ? (
-                        <Button
-                            fullWidth
-                            variant="contained"
-                            disabled
-                            sx={{ marginTop: '1rem' }}
-                        >
-                            <CircularProgress size={24} sx={{ marginRight: '0.5rem' }} />
-                            Please wait
-                        </Button>
-                    ) : (
-                        <Button
-                            type="submit"
-                            fullWidth
-                            variant="contained"
-                            sx={{ marginTop: '1rem' }}
-                        >
-                            Login
-                        </Button>
-                    )}
-                    <Typography variant="body2" marginTop={2}>
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        {loading ? (
+                            <Button variant="contained" fullWidth disabled>
+                                <CircularProgress size={20} />
+                                <span className="ml-2">Logging in...</span>
+                            </Button>
+                        ) : (
+                            <Button
+                                sx={{ background: 'linear-gradient(to right, rgb(5, 3, 0), rgb(7, 5, 3))', color: 'white' }}
+                                type="submit"
+                                fullWidth
+                                size="large"
+                            >
+                                Login
+                            </Button>
+                        )}
+                    </Box>
+                    <Typography className="text-center mt-3 text-sm">
                         Don't have an account?{' '}
-                        <Link to="/signup" style={{ color: '#1976D2' }}>
+                        <Link to="/signup" className="text-blue-600 hover:underline">
                             Signup
                         </Link>
                     </Typography>
-                </Box>
-            </Box>
-        </div>
+                </form>
+            </Paper>
+        </Box>
     );
 };
 

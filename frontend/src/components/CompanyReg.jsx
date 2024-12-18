@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from 'react';
+// CompanyReg.jsx
 
-import { TextField, Button, RadioGroup, FormControlLabel, Radio, CircularProgress } from '@mui/material';
+
+import React, { useEffect, useState } from 'react';
+import { TextField, Button, RadioGroup, FormControlLabel, Radio, CircularProgress, Typography, Box, Paper } from '@mui/material';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { USER_API_END_POINT } from '../utils/constant';
@@ -18,7 +20,7 @@ const Signup = () => {
         file: ""
     });
 
-    const { loading, user } = useSelector(store => store.auth);
+    const { loading, user } = useSelector((store) => store.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
@@ -53,8 +55,8 @@ const Signup = () => {
                 toast.success(res.data.message);
             }
         } catch (error) {
-            console.log(error);
-            toast.error(error.response.data.message);
+            console.error(error);
+            toast.error(error.response?.data?.message || "An error occurred");
         } finally {
             dispatch(setLoading(false));
         }
@@ -67,65 +69,96 @@ const Signup = () => {
     }, [user, navigate]);
 
     return (
-        <div>
-            
-            <div className="flex items-center justify-center max-w-7xl mx-auto">
-                <form onSubmit={submitHandler} className="w-1/2 border border-gray-200 rounded-md p-4 my-10">
-                    <h1 className="font-bold text-xl mb-5">Sign Up</h1>
-                    
-                    <TextField
-                        label="Full Name"
-                        variant="outlined"
-                        fullWidth
-                        margin="normal"
-                        name="fullname"
-                        value={input.fullname}
-                        onChange={changeEventHandler}
-                    />
-                    
-                    <TextField
-                        label="Email"
-                        variant="outlined"
-                        fullWidth
-                        margin="normal"
-                        name="email"
-                        value={input.email}
-                        onChange={changeEventHandler}
-                    />
-                    
-                    <TextField
-                        label="Phone Number"
-                        variant="outlined"
-                        fullWidth
-                        margin="normal"
-                        name="phoneNumber"
-                        value={input.phoneNumber}
-                        onChange={changeEventHandler}
-                    />
-                    
-                    <TextField
-                        label="Password"
-                        variant="outlined"
-                        fullWidth
-                        margin="normal"
-                        name="password"
-                        type="password"
-                        value={input.password}
-                        onChange={changeEventHandler}
-                    />
-                    
-                    <RadioGroup
-                        name="role"
-                        value={input.role}
-                        onChange={changeEventHandler}
-                        row
-                    >
-                        <FormControlLabel value="student" control={<Radio />} label="Student" />
-                        <FormControlLabel value="recruiter" control={<Radio />} label="Recruiter" />
-                    </RadioGroup>
-                    
-                    <div className="my-2">
-                        <label htmlFor="profile">Profile Picture</label>
+        <Box
+            className="flex items-center justify-center min-h-screen bg-gray-50"
+            sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                backgroundColor: "#f9f9f9",
+                height: "100vh",
+                padding: 2,
+            }}
+        >
+            <Paper
+                elevation={3}
+                sx={{
+                    width: "100%",
+                    maxWidth: 450,
+                    padding: 3, // Reduced padding to minimize form height
+                    borderRadius: 3,
+                    boxShadow: "0px 6px 15px rgba(0, 0, 0, 0.1)",
+                }}
+            >
+                <Typography variant="h5" textAlign="center" fontWeight="bold" mb={3} color="black">
+                    Create Your Account
+                </Typography>
+                <form onSubmit={submitHandler}>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <TextField
+                            label="Full Name"
+                            variant="outlined"
+                            fullWidth
+                            name="fullname"
+                            value={input.fullname}
+                            onChange={changeEventHandler}
+                            required
+                        />
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <TextField
+                            label="Email Address"
+                            variant="outlined"
+                            fullWidth
+                            name="email"
+                            value={input.email}
+                            onChange={changeEventHandler}
+                            type="email"
+                            required
+                        />
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <TextField
+                            label="Phone Number"
+                            variant="outlined"
+                            fullWidth
+                            name="phoneNumber"
+                            value={input.phoneNumber}
+                            onChange={changeEventHandler}
+                            type="tel"
+                            required
+                        />
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <TextField
+                            label="Password"
+                            variant="outlined"
+                            fullWidth
+                            name="password"
+                            type="password"
+                            value={input.password}
+                            onChange={changeEventHandler}
+                            required
+                        />
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+                            Role
+                        </Typography>
+                        <RadioGroup
+                            name="role"
+                            value={input.role}
+                            onChange={changeEventHandler}
+                            row
+                        >
+                            <FormControlLabel value="student" control={<Radio />} label="Student" />
+                            <FormControlLabel value="recruiter" control={<Radio />} label="Recruiter" />
+                        </RadioGroup>
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        <Typography variant="subtitle1" fontWeight="bold" gutterBottom>
+                            Profile Picture
+                        </Typography>
                         <input
                             accept="image/*"
                             type="file"
@@ -133,30 +166,28 @@ const Signup = () => {
                             onChange={changeFileHandler}
                             className="cursor-pointer"
                         />
-                    </div>
-                    
-                    {loading ? (
-                        <Button variant="contained" fullWidth disabled>
-                            <CircularProgress size={24} />
-                            Please wait
-                        </Button>
-                    ) : (
-                        <Button variant="contained" type="submit" fullWidth>
-                            Signup
-                        </Button>
-                    )}
-
-                    <div className="text-center mt-4">
-                        <span className="text-sm">
-                            Already have an account?{' '}
-                            <Link to="/login" className="text-blue-600">
-                                Login
-                            </Link>
-                        </span>
-                    </div>
+                    </Box>
+                    <Box sx={{ marginBottom: 2 }}>
+                        {loading ? (
+                            <Button variant="contained" fullWidth disabled>
+                                <CircularProgress size={20} />
+                                <span className="ml-2">Signing up...</span>
+                            </Button>
+                        ) : (
+                            <Button sx={{background: 'linear-gradient(to right,rgb(5, 3, 0),rgb(7, 5, 3))', color:'white'}} type="submit" fullWidth size="large">
+                                Create Account
+                            </Button>
+                        )}
+                    </Box>
+                    <Typography className="text-center mt-3 text-sm">
+                        Already have an account?{" "}
+                        <Link to="/login" className="text-blue-600 hover:underline" >
+                            Login
+                        </Link>
+                    </Typography>
                 </form>
-            </div>
-        </div>
+            </Paper>
+        </Box>
     );
 };
 

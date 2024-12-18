@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, IconButton, Tooltip } from '@mui/material';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, 
+    // IconButton, 
+    // Tooltip,
+    Button } from '@mui/material';
 import { Avatar, Popover } from '@mui/material';
 import { Edit, MoreHoriz } from '@mui/icons-material';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
+
 
 const CompaniesTable = () => {
     const { companies, searchCompanyByText } = useSelector(store => store.company);
@@ -29,7 +33,13 @@ const CompaniesTable = () => {
                         <TableCell>Logo</TableCell>
                         <TableCell>Name</TableCell>
                         <TableCell>Date</TableCell>
-                        <TableCell align="right">Action</TableCell>
+                        <TableCell align="right">
+    <Link to="/admin/jobs" style={{ textDecoration: 'none' }}>
+        <Button>
+            Jobs
+        </Button>
+    </Link>
+</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -40,8 +50,9 @@ const CompaniesTable = () => {
                             </TableCell>
                             <TableCell>{company.name}</TableCell>
                             <TableCell>{company.createdAt ? company.createdAt.split("T")[0] : "N/A"}</TableCell>
+                            <TableCell> </TableCell>
 
-                            <TableCell align="right">
+                            {/* <TableCell align="right">
                                 <Popover
                                     content={
                                         <div>
@@ -57,7 +68,7 @@ const CompaniesTable = () => {
                                         <MoreHoriz />
                                     </IconButton>
                                 </Popover>
-                            </TableCell>
+                            </TableCell> */}
                         </TableRow>
                     ))}
                 </TableBody>

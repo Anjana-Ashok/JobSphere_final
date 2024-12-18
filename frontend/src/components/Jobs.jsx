@@ -1,3 +1,7 @@
+// jobs.jsx
+
+
+
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import FilterCard from "./FilterCard";
@@ -26,12 +30,20 @@ const Jobs = () => {
   }, [allJobs, searchedQuery]);
 
   return (
-    <Box>
+    <Box
+      sx={{
+        width: "100%",
+        backgroundColor: "#f9f9f9",
+        minHeight: "100vh", // Ensure the page takes up the full height
+      }}
+    >
       {/* Navbar */}
       <Navbar />
-      <Container maxWidth="lg" sx={{ mt: 5 }}>
-        <Grid container spacing={3}>
-          {/* Filter Sidebar */}
+
+      <Container maxWidth="xl" sx={{ mt: 5 }}>
+        {/* <Grid container spacing={}> */}
+          {/* Filter Sidebar (Optional) */}
+          {/* Uncomment this section if you want to add the filter sidebar */}
           {/* <Grid item xs={12} md={3}>
             <Paper elevation={3} sx={{ p: 2 }}>
               <FilterCard />
@@ -39,17 +51,17 @@ const Jobs = () => {
           </Grid> */}
 
           {/* Job Listings */}
-          <Grid item xs={12} md={9}>
+          <Grid item xs={13} md={9}>
             {filterJobs.length <= 0 ? (
-              <Typography variant="h6" color="textSecondary">
+              <Typography variant="h6" color="textSecondary" sx={{ textAlign: "center" }}>
                 Job not found
               </Typography>
             ) : (
               <Box
                 sx={{
-                  height: "88vh",
+                  height: "auto",
                   overflowY: "auto",
-                  pb: 5,
+                  pb: 7,
                 }}
               >
                 <Grid container spacing={3}>
@@ -58,7 +70,7 @@ const Jobs = () => {
                       item
                       xs={12}
                       sm={6}
-                      md={4}
+                      md={3}
                       key={job?._id}
                       component={motion.div}
                       initial={{ opacity: 0, x: 100 }}
@@ -73,7 +85,7 @@ const Jobs = () => {
               </Box>
             )}
           </Grid>
-        </Grid>
+    
       </Container>
     </Box>
   );

@@ -1,3 +1,4 @@
+
 import React from "react";
 import {
   Card,
@@ -32,6 +33,9 @@ const Job = ({ job }) => {
         borderRadius: 2,
         backgroundColor: "white",
         border: "1px solid #f0f0f0",
+        height: "100%", // Allow the card to expand to the available height
+        display: "flex",
+        flexDirection: "column",
       }}
     >
       {/* Top Section: Days Ago and Bookmark */}
@@ -68,23 +72,50 @@ const Job = ({ job }) => {
           sx={{ width: 56, height: 56 }}
         />
         <Box>
-          <Typography variant="h6">{job?.company?.name}</Typography>
-          <Typography variant="body2" color="textSecondary">
+          <Typography
+            variant="h6"
+            sx={{
+              fontSize: { xs: "1rem", sm: "1.25rem" }, // Adjust font size for responsiveness
+              textAlign: "left", // Ensure alignment is left for consistency
+            }}
+          >
+            {job?.company?.name}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="textSecondary"
+            sx={{
+              fontSize: { xs: "0.75rem", sm: "1rem" },
+              textAlign: "left", // Ensure alignment is left for consistency
+            }}
+          >
             India
           </Typography>
         </Box>
       </Box>
 
       {/* Job Title and Description */}
-      <CardContent>
+      <CardContent sx={{ flexGrow: 1 }}>
         <Typography
           variant="h6"
-          sx={{ fontWeight: "bold", mb: 1 }}
+          sx={{
+            fontWeight: "bold",
+            mb: 1,
+            fontSize: { xs: "1.2rem", sm: "1.5rem" },
+            textAlign: "left", // Ensure alignment is left for consistency
+          }}
           gutterBottom
         >
           {job?.title}
         </Typography>
-        <Typography variant="body2" color="textSecondary">
+        <Typography
+          variant="body2"
+          color="textSecondary"
+          sx={{
+            fontSize: { xs: "0.85rem", sm: "1rem" },
+            textAlign: "left", // Ensure alignment is left for consistency
+          }}
+        >
           {job?.description}
         </Typography>
       </CardContent>
@@ -96,6 +127,7 @@ const Job = ({ job }) => {
           gap: 1,
           flexWrap: "wrap",
           mt: 2,
+          justifyContent: "flex-start", // Align badges consistently to the left
         }}
       >
         <Chip
@@ -120,18 +152,9 @@ const Job = ({ job }) => {
         <Button
           variant="outlined"
           onClick={() => navigate(`/description/${job?._id}`)}
+          sx={{ width: { xs: "100%", sm: "auto" } }} // Full width on small screens
         >
           Details
-        </Button>
-        <Button
-          variant="contained"
-          sx={{
-            backgroundColor: "#7209b7",
-            color: "white",
-            "&:hover": { backgroundColor: "#5e0794" },
-          }}
-        >
-          Save For Later
         </Button>
       </CardActions>
     </Card>

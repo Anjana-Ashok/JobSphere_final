@@ -1,32 +1,15 @@
 import { Link } from 'react-router-dom'; 
 import '../css/About.css';
 import Footer from './Footer';
-import log from '../assets/orangelogo.png'
 import "../css/WelcomePage.css";
+import Navbar from './Navbar';
 const About = () => {
   return (
     <div className="about-us-container">
-      <header className="navbar">
-          <div className="logo">
-            <img src={log} alt="JobSphere Logo"
-              style={{ width: 90, height: 90 }} />
-            <span style={{ fontWeight: 600, fontSize: 25 }}>JobSphere</span>
-          </div>
-          <nav className="nav-links">
-
-            <Link to={'/home'}><a href="#home">Home</a></Link>
-
-
-            <Link to={'/aboutus'}><a href="#price-sheet">About us</a></Link>
-
-
-            <Link to={'/login'}> <a href="#about-us">Join</a></Link>
-          </nav>
-
-        </header><br></br>  
+     <Navbar/>  
       {/* Header */}
-      <br></br>
-      <header className="about-us-header">
+      
+      <header className="about-us-header"  style={{ marginTop: "0px" }}>
         <h1>Welcome to JobSphere</h1>
         <p>Your Gateway to Career Success</p>
       </header>

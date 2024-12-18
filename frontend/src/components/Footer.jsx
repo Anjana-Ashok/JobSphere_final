@@ -1,41 +1,33 @@
+import instagram_icon from '../assets/insta.png';
+import google from '../assets/google.png';
+import facebook from '../assets/facebook.png';
+import footerlog from '../assets/orangelogo2.png';
+import twitter from '../assets/twitter.png';
 
-import instagram_icon from '../assets/insta.png'
-import google from '../assets/google.png'
-import facebook from '../assets/facebook.png'
-import footerlog from '../assets/orangelogo2.png'
-import twitter from '../assets/twitter.png'
-
-
-import { width } from "@mui/system";
 const Footer = () => {
   const footerStyle = {
     backgroundColor: "#ffff",
-    padding: "40px 0px 20px 90px",
-    textAlign: "center",
+    padding: "40px 20px",
     fontFamily: "Arial, sans-serif",
     color: "#333",
   };
 
   const logoSection = {
     textAlign: "center",
-    marginBottom: "0px",
+    marginBottom: "20px",
   };
 
   const logoImg = {
-    height:"170px",
-    width:"170px",
+    height: "150px",
+    width: "150px",
     marginBottom: "10px",
-  };
-
-  const contactInfo = {
-    lineHeight: "1.8",
   };
 
   const footerLinks = {
     display: "grid",
-    gridTemplateColumns: "repeat(5, 1fr)",
+    gridTemplateColumns: "repeat(auto-fit, minmax(150px, 1fr))",
     gap: "20px",
-    textAlign: "left",
+    textAlign: "center",
     marginTop: "30px",
   };
 
@@ -56,7 +48,7 @@ const Footer = () => {
     marginTop: "40px",
     display: "flex",
     justifyContent: "center",
-    gap: "10px",
+    gap: "15px",
   };
 
   const iconImg = {
@@ -67,19 +59,7 @@ const Footer = () => {
   const copyright = {
     fontSize: "14px",
     marginTop: "20px",
-    marginBottom: "20px"
-  };
-
-  const avatarRow = {
-    marginTop: "40px",
-    display: "flex",
-    justifyContent: "center",
-    gap: "15px",
-  };
-
-  const avatarImg = {
-    width: "200px",
-    borderRadius: "50%",
+    textAlign: "center",
   };
 
   return (
@@ -87,15 +67,10 @@ const Footer = () => {
       <div style={logoSection}>
         <img
           src={footerlog}
-          alt="Gorilla Logo"
+          alt="Footer Logo"
           style={logoImg}
         />
-        {/* <p style={contactInfo}>
-          +977-9812345678 <br />
-          Maitidevi, Kathmandu <br />
-          info@gorillaeducation.com
-        </p> */}
-      </div> 
+      </div>
 
       <div style={footerLinks}>
         <ul style={linkGroup}>
@@ -130,28 +105,16 @@ const Footer = () => {
       </div>
 
       <div style={socialIcons}>
-     
         <img src={instagram_icon} alt="Instagram" style={iconImg} />
         <img src={facebook} alt="Facebook" style={iconImg} />
         <img src={google} alt="Google" style={iconImg} />
         <img src={twitter} alt="Twitter" style={iconImg} />
-    
       </div>
 
       <p style={copyright}>
-        ©2024 Job Portal. All Rights Reserved. Powered By UltraByte
+        &copy;2024 Job Portal. All Rights Reserved. Powered By UltraByte
         International Pvt. Ltd
       </p>
-
-      {/* <div style={avatarRow}>
-        <img src={avatar1} alt="Avatar 1" style={avatarImg} />
-        <img src="/path-to-avatar2.png" alt="Avatar 2" style={avatarImg} />
-        <img src="/path-to-avatar3.png" alt="Avatar 3" style={avatarImg} />
-        <img src="/path-to-avatar4.png" alt="Avatar 4" style={avatarImg} />
-        <img src="/path-to-avatar5.png" alt="Avatar 5" style={avatarImg} />
-        
-      </div> */}
-      
     </footer>
   );
 };
