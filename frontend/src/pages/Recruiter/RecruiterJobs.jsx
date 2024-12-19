@@ -41,7 +41,8 @@ const AdminJobs = () => {
                         onClick={() => navigate("/admin/jobs/create")}
                         sx={{
                             textTransform: "none",
-                            bgcolor: "primary.main",
+                            background:
+                  "linear-gradient(to right,rgb(228, 142, 23),rgb(240, 109, 16))",
                             "&:hover": { bgcolor: "primary.dark" },
                         }}
                     >

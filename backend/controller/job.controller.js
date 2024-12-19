@@ -117,11 +117,60 @@ const getAdminJobs = async (req, res) => {
         res.status(500).json({ message: "Internal Server Error", success: false });
     }
 };
+const updateJob = async (req, res) => {
+    try {
+        const jobId = req.params.id;
+        const updates = req.body;
 
+        if (!jobId) {
+            return res.status(400).json({
+                message: "Job ID is required.",
+                success: false
+            });
+        }
+
+        const job = await Job.findById(jobId);
+
+        // if (!job) {
+        //     return res.status(404).json({
+        //         message: "Job not found.",
+        //         success: false
+        //     });
+        // }
+
+        if (String(job.created_by) !== String(req.id)) {
+            return res.status(403).json({
+                message: "You are not authorized to update this job.",
+                success: false
+            });
+        }
+
+        // Update fields
+        if (updates.title) job.title = updates.title;
+        if (updates.description) job.description = updates.description;
+        if (updates.requirements) job.requirements = updates.requirements.split(",");
+        if (updates.salary) job.salary = Number(updates.salary);
+        if (updates.location) job.location = updates.location;
+        if (updates.jobType) job.jobType = updates.jobType;
+        if (updates.experience) job.experienceLevel = updates.experience;
+        if (updates.position) job.position = updates.position;
+
+        await job.save();
+
+        return res.status(200).json({
+            message: "Job updated successfully.",
+            job,
+            success: true
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ message: "Internal Server Error", success: false });
+    }
+};
 // Export functions using module.exports
 module.exports = {
     postJob,
     getAllJobs,
     getJobById,
-    getAdminJobs
+    getAdminJobs,updateJob
 };

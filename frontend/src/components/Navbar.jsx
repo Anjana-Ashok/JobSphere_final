@@ -84,7 +84,7 @@ const Navbar = () => {
                 display: { xs: 'none', md: 'block' },
               }}
             >
-              Job<span style={{ color: '#FFD700' }}>Sphere</span>
+              Job<span style={{ color: 'orange' }}>Sphere</span>
             </Typography>
           </Box>
 
@@ -119,7 +119,7 @@ const Navbar = () => {
                 key={link.label}
                 component={Link}
                 to={link.path}
-                sx={{ color: 'white', '&:hover': { color: '#FFD700' } }}
+                sx={{ color: 'white', '&:hover': { color: 'orange' } }}
               >
                 {link.label}
               </Button>
@@ -132,7 +132,7 @@ const Navbar = () => {
               <Button
                 component={Link}
                 to="/login"
-                sx={{ color: 'white', '&:hover': { color: '#FFD700' } }}
+                sx={{ color: 'white', '&:hover': { color: 'orange' } }}
               >
                 Join
               </Button>

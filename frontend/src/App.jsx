@@ -16,6 +16,7 @@ import Applicants from './pages/Recruiter/Applicants'
 import Jobs from './components/Jobs'
 import JobDescription from './components/JobDescription'
 import Browse from './components/Browse'
+import JobSetup from './pages/Recruiter/JobSetup'
 
 
 
@@ -40,6 +41,7 @@ function App() {
         <Route path="/description/:id" element={<JobDescription/>} />
         <Route path="/browse" element={<Browse/>} />
         <Route path="/aboutUs" element={<About/>} />
+        <Route path="/admin/jobs/:id" element={<JobSetup/>} />
       </Routes>
     </>
   )

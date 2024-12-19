@@ -86,7 +86,7 @@ const AdminJobsTable = () => {
                                 >
                                     <MenuItem
                                         onClick={() => {
-                                            navigate(`/admin/companies/${job._id}`);
+                                            navigate(`/admin/jobs/${job._id}`);
                                             handleMenuClose();
                                         }}
                                     >

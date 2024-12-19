@@ -39,15 +39,7 @@ const Companies = () => {
           justifyContent="space-between"
         >
           {/* Search Input */}
-          <Grid item xs={12} sm={8} md={7}>
-            <TextField
-              fullWidth
-              label="Filter by name"
-              variant="outlined"
-              size="small"
-              onChange={(e) => setInput(e.target.value)}
-            />
-          </Grid>
+          
 
           {/* New Company Button */}
           <Grid item xs={6} sm={4} md={2}>
@@ -62,10 +54,11 @@ const Companies = () => {
                 color: "white",
                 "&:hover": {
                   background: "rgb(240, 109, 16)",
+                  marginRight:"300px"
                 },
               }}
             >
-              New Company
+              Add  Details
             </Button>
           </Grid>
 
@@ -91,23 +84,7 @@ const Companies = () => {
 
         {/* Companies Table */}
         <Box mt={4}>
-          <Typography
-            variant="h6"
-            sx={{
-              mb: 2,
-              fontSize: {
-                xs: "1rem", // Small screens
-                sm: "1.25rem", // Medium screens
-                md: "1.5rem", // Large screens
-              },
-              textAlign: {
-                xs: "center",
-                sm: "left",
-              },
-            }}
-          >
-            Companies List
-          </Typography>
+         
           <CompaniesTable />
         </Box>
       </Container>
