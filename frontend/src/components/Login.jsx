@@ -122,7 +122,7 @@ const Login = () => {
                             onChange={changeEventHandler}
                             row
                         >
-                            <FormControlLabel value="student" control={<Radio />} label="Student" />
+                            <FormControlLabel value="student" control={<Radio />} label="seeker" />
                             <FormControlLabel value="recruiter" control={<Radio />} label="Recruiter" />
                         </RadioGroup>
                     </Box>

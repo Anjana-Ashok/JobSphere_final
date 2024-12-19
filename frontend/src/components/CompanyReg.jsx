@@ -151,7 +151,7 @@ const Signup = () => {
                             onChange={changeEventHandler}
                             row
                         >
-                            <FormControlLabel value="student" control={<Radio />} label="Student" />
+                            <FormControlLabel value="student" control={<Radio />} label="Seeker" />
                             <FormControlLabel value="recruiter" control={<Radio />} label="Recruiter" />
                         </RadioGroup>
                     </Box>

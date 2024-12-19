@@ -128,7 +128,7 @@ const PostJob = () => {
                             <TextField
                                 fullWidth
                                 type="number"
-                                label="No of Position"
+                                label="No of Vacancy"
                                 name="position"
                                 value={input.position}
                                 onChange={changeEventHandler}

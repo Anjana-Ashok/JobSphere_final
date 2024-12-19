@@ -166,7 +166,7 @@ const JobSetup = () => {
                             <TextField
                                 fullWidth
                                 label="Position"
-                                name="position"
+                                name="Vacancy"
                                 value={input.position}
                                 onChange={changeEventHandler}
                                 variant="outlined"

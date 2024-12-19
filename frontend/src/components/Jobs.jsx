@@ -4,7 +4,7 @@
 
 import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
-import FilterCard from "./FilterCard";
+
 import Job from "./Job";
 import { useSelector } from "react-redux";
 import { motion } from "framer-motion";
@@ -41,14 +41,7 @@ const Jobs = () => {
       <Navbar />
 
       <Container maxWidth="xl" sx={{ mt: 5 }}>
-        {/* <Grid container spacing={}> */}
-          {/* Filter Sidebar (Optional) */}
-          {/* Uncomment this section if you want to add the filter sidebar */}
-          {/* <Grid item xs={12} md={3}>
-            <Paper elevation={3} sx={{ p: 2 }}>
-              <FilterCard />
-            </Paper>
-          </Grid> */}
+       
 
           {/* Job Listings */}
           <Grid item xs={13} md={9}>
