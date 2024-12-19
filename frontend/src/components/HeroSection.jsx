@@ -12,7 +12,7 @@ const HeroSection = () => {
 
     const searchJobHandler = () => {
         dispatch(setSearchedQuery(query));
-        navigate('/browse');
+        navigate('/browse');  // Redirects to the 'browse' page
     };
 
     return (
@@ -20,18 +20,18 @@ const HeroSection = () => {
             sx={{
                 textAlign: 'center',
                 py: 10,
-                width: '800px', // Default width for large screens
+                width: '800px', 
                 maxWidth: '600px',
                 margin: '300px auto 0',
                 px: 2,
                 '@media (max-width: 900px)': {
-                    width: '700px', // Adjust width for tablets
+                    width: '700px',
                     margin: '200px auto 0',
                 },
                 '@media (max-width: 600px)': {
-                    width: '400px', // Adjust width for mobile
+                    width: '400px', 
                     margin: '150px auto 0',
-                    py: 8, // Reduce vertical padding for smaller screens
+                    py: 8, 
                 },
             }}
         >
@@ -59,9 +59,9 @@ const HeroSection = () => {
                         border: '1px solid #E0E0E0',
                         transition: 'transform 0.2s ease-in-out',
                         '&:hover': { transform: 'scale(1.02)' },
-                        flexWrap: 'wrap', // Allow wrapping for smaller screens
+                        flexWrap: 'wrap', 
                         '@media (max-width: 600px)': {
-                            p: 0.5, // Reduce padding for mobile
+                            p: 0.5, 
                         },
                     }}
                 >
@@ -76,7 +76,7 @@ const HeroSection = () => {
                             color: 'text.primary',
                             placeholderColor: 'text.secondary',
                             '@media (max-width: 600px)': {
-                                fontSize: '0.9rem', // Smaller font size for mobile
+                                fontSize: '0.9rem', 
                             },
                         }}
                     />
@@ -92,9 +92,9 @@ const HeroSection = () => {
                             '&:hover': {
                                 background: 'linear-gradient(to right,rgb(249, 209, 49),rgb(240, 109, 16))',
                             },
-                            mt: { xs: 1, sm: 0 }, // Add margin-top for mobile
+                            mt: { xs: 1, sm: 0 }, 
                             '@media (max-width: 600px)': {
-                                px: 2, // Smaller padding for mobile
+                                px: 2, 
                                 py: 0.8, // Adjust button size for mobile
                             },
                         }}

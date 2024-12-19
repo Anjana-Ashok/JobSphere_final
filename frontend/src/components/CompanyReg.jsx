@@ -1,4 +1,3 @@
-// CompanyReg.jsx
 
 
 import React, { useEffect, useState } from 'react';
@@ -45,13 +44,14 @@ const Signup = () => {
         }
 
         try {
-            dispatch(setLoading(true));
+            dispatch(setLoading(true));  // Preparing the form data for submission, including the file if uploaded.
             const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
                 headers: { 'Content-Type': "multipart/form-data" },
                 withCredentials: true,
+                // Sends a POST request to register the user with all form data.
             });
             if (res.data.success) {
-                navigate("/login");
+                navigate("/login");   // Navigates to the login page on successful registration.
                 toast.success(res.data.message);
             }
         } catch (error) {

@@ -25,9 +25,12 @@ const PostJob = () => {
 
     const { companies } = useSelector(store => store.company);
 
+    // Update the input state when form fields change
+
     const changeEventHandler = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value });
     };
+      // Handle form submission to post the job
 
     const selectChangeHandler = (value) => {
         const selectedCompany = companies.find((company) => company.name.toLowerCase() === value);

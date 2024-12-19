@@ -10,7 +10,8 @@ const useGetAllJobs = () => {
     useEffect(()=>{
         const fetchAllJobs = async () => {
             try {
-                const res = await axios.get(`${JOB_API_END_POINT}/get?keyword=${searchedQuery}`,{withCredentials:true});
+                // Sends GET request with the searched query as a parameter to fetch jobs
+                const res = await axios.get(`${JOB_API_END_POINT}/get?keyword=${searchedQuery}`,{withCredentials:true});  // If the request is successful, dispatch the jobs data to Redux store
                 if(res.data.success){
                     dispatch(setAllJobs(res.data.jobs));
                 }

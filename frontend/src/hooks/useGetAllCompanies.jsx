@@ -8,7 +8,7 @@ const useGetAllCompanies = () => {
     const dispatch = useDispatch();
     useEffect(()=>{
         const fetchCompanies = async () => {
-            try {
+            try {    // Sends GET request to fetch all companies from the API
                 const res = await axios.get(`${COMPANY_API_END_POINT}/get`,{withCredentials:true});
                 console.log('called');
                 if(res.data.success){

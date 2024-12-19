@@ -82,13 +82,13 @@ const ApplicantsTable = () => {
           backgroundColor: "#fff",
           minWidth: "100%",
           tableLayout: "fixed",
-          maxHeight: "calc(100vh - 300px)", // Optional: make the table scrollable vertically if it exceeds the page height
+          maxHeight: "calc(100vh - 300px)", 
         }}
       >
         <Box
           sx={{
             display: "block",
-            overflowX: "auto", // Enable horizontal scroll on small screens
+            overflowX: "auto", 
             width: "100%",
           }}
         >
